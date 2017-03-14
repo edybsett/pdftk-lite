@@ -6,3 +6,6 @@ Download the source and compile into an executable pdf, or download the one avai
 Please fork the project and edit to your liking!
 
 Please support the official creators of the PDF Tool Kit, PDF Labs here: https://www.pdflabs.com/
+
+Known Issues: 
+-Files with a multi word name separated by whitespace will send errors.
