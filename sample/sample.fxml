@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="521.0" prefWidth="528.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
+  <children>
+    <TabPane layoutX="0.0" layoutY="20.0" prefHeight="500.999977929685" prefWidth="528.000022070315" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="Select Pages/PDFs">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="465.0" prefWidth="529.0">
+              <children>
+                <VBox alignment="CENTER_LEFT" layoutX="45.0" layoutY="177.0" prefHeight="77.0" prefWidth="84.0">
+                  <children>
+                    <RadioButton fx:id="rbJoin" mnemonicParsing="false" onAction="#handleButtonAction" text="Join" />
+                    <RadioButton fx:id="rbBurst" mnemonicParsing="false" onAction="#handleButtonAction" text="Burst" />
+                    <RadioButton fx:id="rbShuffle" mnemonicParsing="false" onAction="#handleButtonAction" text="Shuffle" />
+                  </children>
+                </VBox>
+                <Button alignment="CENTER" layoutX="36.0" layoutY="28.0" mnemonicParsing="false" onAction="#addPDF" prefHeight="28.0" prefWidth="105.99990000000253" text="Add PDF" textAlignment="CENTER">
+                  <font>
+                    <Font size="12.0" fx:id="x1" />
+                  </font>
+                </Button>
+                <Button alignment="CENTER" layoutX="107.0" layoutY="349.0" mnemonicParsing="false" onAction="#saveLocation" prefHeight="88.1328125" prefWidth="316.0" text="Choose save location and create PDF" />
+                <Button contentDisplay="LEFT" font="$x1" layoutX="36.0" layoutY="63.0" mnemonicParsing="false" onAction="#removeAll" prefHeight="28.0" prefWidth="105.99990000000253" text="Clear List" textAlignment="CENTER" />
+                <ListView id="linesTextArea" fx:id="mylist" layoutX="180.0" layoutY="28.0" onMouseClicked="#handleMouseClick" prefHeight="225.0" prefWidth="302.0" />
+                <Text fx:id="correctInput" fill="RED" layoutX="130.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                  <font>
+                    <Font size="10.0" />
+                  </font>
+                </Text>
+                <Button font="$x1" layoutX="35.0" layoutY="98.0" mnemonicParsing="false" onAction="#removeTasks" prefHeight="28.0" prefWidth="105.99990000000253" text="Clear Tasks" textAlignment="CENTER" />
+                <Button layoutX="35.0" layoutY="134.0" mnemonicParsing="false" onAction="#removePasswords" prefHeight="28.0" prefWidth="106.0" text="Clear Password">
+                  <font>
+                    <Font size="11.0" />
+                  </font>
+                </Button>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Add Watermarks">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label layoutX="46.0" layoutY="94.0" text="Add Watermark:" />
+                <TextField fx:id="watermarkArea" editable="false" layoutX="46.0" layoutY="118.0" prefWidth="342.0" />
+                <Button layoutX="388.0" layoutY="118.0" mnemonicParsing="false" onAction="#setWatermark" text="Add" />
+                <Label layoutX="46.0" layoutY="289.0" text="Add Stamp:" />
+                <TextField fx:id="stampArea" editable="false" layoutX="46.0" layoutY="313.0" prefHeight="21.0" prefWidth="342.0" />
+                <Button layoutX="388.0" layoutY="313.0" mnemonicParsing="false" onAction="#setStamp" text="Add" />
+                <Button layoutX="436.0" layoutY="118.0" mnemonicParsing="false" onAction="#removeWatermark" text="Remove" />
+                <Button layoutX="436.0" layoutY="313.0" mnemonicParsing="false" onAction="#removeStamp" text="Remove" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Add Password">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <TextField fx:id="passwordArea" layoutX="165.0" layoutY="154.0" prefWidth="200.0" />
+                <Label layoutX="165.0" layoutY="138.0" text="Set Owner Password:" />
+                <Button layoutX="234.0" layoutY="269.0" mnemonicParsing="false" onAction="#addPassword" text="Set" />
+                <Label layoutX="165.0" layoutY="190.0" text="Set User Password (For Opening):" />
+                <TextField id="eastRot" fx:id="userPasswordArea" layoutX="165.0" layoutY="206.0" prefWidth="200.0" />
+                <Text fx:id="correctPass" fill="RED" layoutX="242.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <CheckBox fx:id="allowPrinting" layoutX="165.0" layoutY="243.0" mnemonicParsing="false" text="Allow Printing" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Decrypt">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <TextField fx:id="fileToDecrypt" layoutX="137.0" layoutY="101.0" prefWidth="200.0" />
+                <TextField fx:id="decryptSave" layoutX="137.0" layoutY="144.0" prefWidth="200.0" />
+                <TextField fx:id="passwordAreaD" layoutX="137.0" layoutY="233.0" prefWidth="200.0" />
+                <Text fx:id="correctPassDecrypt" fill="RED" layoutX="137.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Button layoutX="204.0" layoutY="290.0" mnemonicParsing="false" onAction="#saveDecryptedFile" text="Decrypt" />
+                <Label layoutX="137.0" layoutY="85.0" text="File to decrypt:" />
+                <Label layoutX="137.0" layoutY="128.0" text="Save Location:" />
+                <Label layoutX="137.0" layoutY="217.0" text="Owner Password:" />
+                <Button layoutX="337.0" layoutY="101.0" mnemonicParsing="false" onAction="#setFileToDecrypt" text="Select" />
+                <Button layoutX="337.0" layoutY="144.0" mnemonicParsing="false" onAction="#saveDecryptLocation" text="Select" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <MenuBar layoutX="0.0" layoutY="0.0" prefWidth="527.9999755859375">
+      <menus>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </children>
+</Pane>

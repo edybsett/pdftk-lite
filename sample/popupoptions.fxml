@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="166.0" prefWidth="528.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
+  <children>
+    <Button layoutX="159.0" layoutY="109.0" mnemonicParsing="false" onAction="#closeWindow" text="Close Window" />
+    <Button defaultButton="true" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" onAction="#addTaskSelectpages" text="Add Task" />
+    <TextField fx:id="pagesAdd" layoutX="47.0" layoutY="72.0" prefWidth="226.0" />
+    <Label layoutX="47.0" layoutY="38.0" text="Select pages:" />
+    <Button contentDisplay="TEXT_ONLY" layoutX="426.0" layoutY="50.0" mnemonicParsing="false" onAction="#removePDF" prefHeight="66.0" prefWidth="88.0" text="Remove PDF" textAlignment="JUSTIFY">
+      <font>
+        <Font size="10.0" />
+      </font>
+    </Button>
+    <Label layoutX="304.0" layoutY="42.0" text="Rotate:" />
+    <VBox layoutX="304.0" layoutY="57.0" prefHeight="96.0" prefWidth="114.0">
+      <children>
+        <RadioButton id="eastRot" fx:id="noRot" mnemonicParsing="false" onAction="#handlePopupButtonAction" selected="true" text="+0 (default)" />
+        <RadioButton fx:id="eastRot" mnemonicParsing="false" onAction="#handlePopupButtonAction" text="+90" />
+        <RadioButton id="linesTextArea" fx:id="southRot" mnemonicParsing="false" onAction="#handlePopupButtonAction" text="+180" />
+        <RadioButton id="linesTextArea" fx:id="westRot" mnemonicParsing="false" onAction="#handlePopupButtonAction" text="-90" />
+      </children>
+    </VBox>
+    <Text fx:id="valid" fill="RED" layoutX="47.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+  </children>
+</Pane>
