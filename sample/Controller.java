@@ -596,17 +596,22 @@ public class Controller {
     public void saveDecryptedFile(ActionEvent actionEvent) {
         ExecuteShellCommand exec = new ExecuteShellCommand();
         String command = "";
-        command = "pdftk " + filetoDecrypt.getAbsolutePath() + " input_pw " + passwordAreaD.getText() + " output " + decryptSavePath;
-        if (!command.equals("")) {
-            exec.executeCommand(command);
-            System.out.println(command);
-            decryptSaveFile = null;
-            filetoDecrypt = null;
-            decryptSavePath = "";
-            decryptSave.clear();
-            fileToDecrypt.clear();
-            userPasswordAreaD.clear();
-            passwordAreaD.clear();
+        try {
+            command = "pdftk " + filetoDecrypt.getAbsolutePath() + " input_pw " + passwordAreaD.getText() + " output " + decryptSavePath;
+            if (!filetoDecrypt.getAbsolutePath().equals("") && !passwordAreaD.getText().equals("") && !decryptSavePath.equals("")) {
+                exec.executeCommand(command);
+                System.out.println(command);
+                decryptSaveFile = null;
+                filetoDecrypt = null;
+                decryptSavePath = "";
+                decryptSave.clear();
+                fileToDecrypt.clear();
+                userPasswordAreaD.clear();
+                passwordAreaD.clear();
+            }
+        }
+        catch (Exception e) {
+            correctPassDecrypt.setText("Invalid input");
         }
     }
 
